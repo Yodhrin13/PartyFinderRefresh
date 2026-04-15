@@ -1,13 +1,10 @@
 name: Release
-
 on:
   push:
-    branches:
-       - master
-
+    tags:
+      - 'v*'
 permissions:
   contents: write
-
 jobs:
   build:
     runs-on: windows-latest
@@ -35,19 +32,19 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: List build output
-        run: ls -la PartyFinderRefresher/PartyFinderRefresher/bin/Release/
+        run: ls -la PartyFinderRefresher/bin/x64/Release/
 
       - name: Package
         run: |
           mkdir -p latest_contents
-          cp PartyFinderRefresher/PartyFinderRefresher/bin/Release/* latest_contents/
-          
+          cp PartyFinderRefresher/bin/x64/Release/* latest_contents/
+
           if [ ! -f "latest_contents/PartyFinderRefresher.dll" ]; then
             echo "ERROR: PartyFinderRefresher.dll not found in package"
             ls -la latest_contents/
             exit 1
           fi
-          
+
           cd latest_contents
           zip -r $GITHUB_WORKSPACE/latest.zip .
 
@@ -66,10 +63,8 @@ jobs:
         run: |
           VERSION=${{ steps.version.outputs.version }}
           TIMESTAMP=$(date +%s)
-          REPO_OWNER=${{ github.repository_owner }}
           DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/latest.zip"
-          
-          # Update repo.json with jq
+
           jq --arg ver "$VERSION" \
              --arg ts "$TIMESTAMP" \
              --arg dl "$DOWNLOAD_URL" \
