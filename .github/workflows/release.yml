@@ -32,7 +32,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore -p:Platform=x64
+        run: dotnet build --configuration Release --no-restore
 
       - name: List build output
         run: find PartyFinderRefresher/bin -type f -name "*.dll" -o -name "*.json" | head -20
