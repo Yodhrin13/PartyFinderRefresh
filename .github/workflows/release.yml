@@ -40,8 +40,8 @@ jobs:
       - name: Package
         run: |
           mkdir -p latest_contents
-          if [ -d "PartyFinderRefresher/bin/x64/Release" ]; then
-            cp PartyFinderRefresher/bin/x64/Release/* latest_contents/
+          if [ -d "PartyFinderRefresher/bin/Release" ]; then
+            cp PartyFinderRefresher/bin/Release/* latest_contents/
           elif [ -d "PartyFinderRefresher/bin/Release" ]; then
             cp PartyFinderRefresher/bin/Release/* latest_contents/
           else
