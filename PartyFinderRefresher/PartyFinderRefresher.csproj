@@ -7,7 +7,6 @@
         <RootNamespace>PartyFinderRefresher</RootNamespace>
         <AssemblyName>PartyFinderRefresher</AssemblyName>
         <Platforms>x64</Platforms>
-        <Configurations>Debug;Release</Configurations>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
