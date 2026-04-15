@@ -26,10 +26,10 @@ jobs:
           unzip -o /tmp/dalamud.zip -d $DALAMUD_HOME
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore PartyFinderRefresher/PartyFinderRefresher.csproj
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build PartyFinderRefresher/PartyFinderRefresher.csproj --configuration Release --no-restore
 
       - name: List build output
         run: ls -la PartyFinderRefresher/bin/x64/Release/
