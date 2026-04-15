@@ -2,15 +2,15 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*.*.*.*'
+    branches:
+       - master
 
 permissions:
   contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       DALAMUD_HOME: /tmp/dalamud
     steps:
@@ -35,19 +35,12 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: List build output
-        run: find PartyFinderRefresher/bin -type f -name "*.dll" -o -name "*.json" | head -20
+        run: ls -la PartyFinderRefresher/PartyFinderRefresher/bin/Release/
 
       - name: Package
         run: |
           mkdir -p latest_contents
-          if [ -d "PartyFinderRefresher/bin/x64/Release" ]; then
-            cp PartyFinderRefresher/bin/x64/Release/* latest_contents/
-          elif [ -d "PartyFinderRefresher/bin/Release" ]; then
-            cp PartyFinderRefresher/bin/Release/* latest_contents/
-          else
-            echo "ERROR: Could not find build output directory"
-            exit 1
-          fi
+          cp PartyFinderRefresher/PartyFinderRefresher/bin/Release/* latest_contents/
           
           if [ ! -f "latest_contents/PartyFinderRefresher.dll" ]; then
             echo "ERROR: PartyFinderRefresher.dll not found in package"
