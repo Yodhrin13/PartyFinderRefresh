@@ -1,0 +1,23 @@
+{
+    "Name": "PartyFinderRefresher",
+    "Author": "Yod",
+    "Punchline": "Auto-refreshes your Party Finder listing on a timer.",
+    "Description": "Automatically refreshes your active Party Finder recruitment listing at a configurable interval",
+    "Tags": [
+        "party finder",
+        "pf",
+        "refresh",
+        "recruitment",
+        "utility"
+    ],
+    "CategoryTags": [
+        "utility"
+    ],
+    "InternalName": "PartyFinderRefresher",
+    "AssemblyVersion": "0.1.0.0",
+    "RepoUrl": "https://github.com/Yodhrin13/PartyFinderRefresher",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 14,
+    "LoadPriority": 0,
+    "IconUrl": "https://raw.githubusercontent.com/Yodhrin13/PartyFinderRefresher/main/images/icon.png"
+}
