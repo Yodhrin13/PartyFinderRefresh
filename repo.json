@@ -15,8 +15,8 @@
     "CategoryTags": [
       "utility"
     ],
-    "AssemblyVersion": "0.1.0.0",
-    "TestingAssemblyVersion": "0.1.0.0",
+    "AssemblyVersion": "0.2.0.0",
+    "TestingAssemblyVersion": "0.2.0.0",
     "RepoUrl": "https://github.com/Yodhrin13/PartyFinderRefresher",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 14,
