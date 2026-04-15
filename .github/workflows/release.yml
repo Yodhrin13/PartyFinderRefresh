@@ -40,7 +40,7 @@ jobs:
       - name: Package
         run: |
           mkdir -p latest_contents
-          cp PartyFinderRefresher/bin/Release/* latest_contents/
+          cp -r PartyFinderRefresher/bin/Release/* latest_contents/
 
           if [ ! -f "latest_contents/PartyFinderRefresher.dll" ]; then
             echo "ERROR: PartyFinderRefresher.dll not found in package"
