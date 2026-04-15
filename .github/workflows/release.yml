@@ -35,12 +35,12 @@ jobs:
         run: find . -name "PartyFinderRefresher.dll" 2>/dev/null
 
       - name: List build output
-        run: ls -la PartyFinderRefresher/bin/x64/Release/
+        run: ls -la PartyFinderRefresher/bin/Release/
 
       - name: Package
         run: |
           mkdir -p latest_contents
-          cp PartyFinderRefresher/bin/x64/Release/* latest_contents/
+          cp PartyFinderRefresher/bin/Release/* latest_contents/
 
           if [ ! -f "latest_contents/PartyFinderRefresher.dll" ]; then
             echo "ERROR: PartyFinderRefresher.dll not found in package"
