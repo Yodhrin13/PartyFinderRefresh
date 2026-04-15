@@ -17,7 +17,7 @@ A [Dalamud](https://github.com/goatcorp/Dalamud) plugin for FFXIV that automatic
 1. Open Dalamud Settings → Experimental
 2. Add the following custom plugin repository URL:
    ```
-   https://raw.githubusercontent.com/Yodhrin13/PartyFinderRefresher/main/repo.json
+   https://raw.githubusercontent.com/Yodhrin13/PartyFinderRefresh/main/repo.json
    ```
 3. Save and search for "PartyFinderRefresher" in the plugin installer
 
