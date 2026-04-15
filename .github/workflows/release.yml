@@ -32,12 +32,31 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore -p:Platform=x64
+
+      - name: List build output
+        run: find PartyFinderRefresher/bin -type f -name "*.dll" -o -name "*.json" | head -20
 
       - name: Package
         run: |
-          cd PartyFinderRefresher/bin/x64/Release
-          zip -r $GITHUB_WORKSPACE/latest.zip *
+          mkdir -p latest_contents
+          if [ -d "PartyFinderRefresher/bin/x64/Release" ]; then
+            cp PartyFinderRefresher/bin/x64/Release/* latest_contents/
+          elif [ -d "PartyFinderRefresher/bin/Release" ]; then
+            cp PartyFinderRefresher/bin/Release/* latest_contents/
+          else
+            echo "ERROR: Could not find build output directory"
+            exit 1
+          fi
+          
+          if [ ! -f "latest_contents/PartyFinderRefresher.dll" ]; then
+            echo "ERROR: PartyFinderRefresher.dll not found in package"
+            ls -la latest_contents/
+            exit 1
+          fi
+          
+          cd latest_contents
+          zip -r $GITHUB_WORKSPACE/latest.zip .
 
       - name: Extract version from tag
         id: version
